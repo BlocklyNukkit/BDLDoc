@@ -102,5 +102,5 @@ theme: landscape
 ## 相关文档: https://hexo.io/docs/one-command-deployment
 deploy:
   type: 'git'
-  repo: https://github.com/BlocklyNukkit/BDLDoc.git
+  repo: git@github.com:BlocklyNukkit/BDLDoc.git
   branch: gh-pages

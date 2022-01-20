@@ -1,5 +1,6 @@
 name: Hexo Deploy
 
+# 触发条件: push到Master分支后自动触发
 on:
   push:
     branches:
@@ -8,23 +9,27 @@ on:
 jobs:
   build:
     name: BDLDoc Build & Delpoy
-    runs-on: ubuntu-18.04
+    # 使用Ubuntu-18.04作为编译部署环境
+    runs-on: ubuntu-18.04 
 
     steps:
       - name: Checkout codes
         uses: actions/checkout@v2
 
+      # 设置Node.js环境
       - name: Setup Node.js
         uses: actions/setup-node@v1
         with:
           node-version: '12'
 
+      # 设置包缓存目录
       - name: Cache node modules
         uses: actions/cache@v1
         with:
           path: ~/.npm
           key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
 
+      # 配置Hexo运行安装环境
       - name: Setup Hexo
         env:
           ACTION_DEPLOY_KEY: ${{ secrets.HEXO_DEPLOY_KEY }}
@@ -39,6 +44,13 @@ jobs:
           npm install hexo-cli -g
           npm install
 
+      #编译MarkDown文件 (预留) 
+      #- name: Generate files
+      #run: |
+      #  hexo clean
+      #  hexo generate
+
+      # 部署Hexo至gh-pages分支下    
       - name: Deploy
         run: |
           hexo clean

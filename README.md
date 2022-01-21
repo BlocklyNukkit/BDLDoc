@@ -6,3 +6,5 @@ BedrockLang编程语言的文档库  (开发中)
 - QQ群: 953752196
 ***
 >基于[Hexo](https://hexo.io)强力驱动
+
+>若无特殊允许下，BDL文档库内的文章默认采用 [CC-BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/) 协议
